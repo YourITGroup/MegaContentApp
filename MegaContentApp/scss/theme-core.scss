@@ -1,0 +1,41 @@
+﻿@import url('../Content/fontawesome-all.css');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Open+Sans:400,700');
+
+/* ------------------------
+    Theme customisation
+*/
+@import "theme/variables";
+
+/* ------------------------
+    Bootstrap Core
+*/
+// Theming reference:
+// http://getbootstrap.com/docs/4.1/getting-started/theming/
+// Required
+@import "../Content/bootstrap/functions";
+@import "../Content/bootstrap/variables";
+@import "../Content/bootstrap/mixins";
+
+// Optional
+@import "../Content/bootstrap/root";
+
+@import "../Content/bootstrap/reboot";
+@import "../Content/bootstrap/type";
+@import "../Content/bootstrap/images";
+@import "../Content/bootstrap/code";
+@import "../Content/bootstrap/grid";
+
+@import "../Content/bootstrap/tables";
+@import "../Content/bootstrap/forms";
+@import "../Content/bootstrap/buttons";
+@import "../Content/bootstrap/transitions";
+@import "../Content/bootstrap/dropdown";
+@import "../Content/bootstrap/button-group";
+@import "../Content/bootstrap/input-group";
+@import "../Content/bootstrap/custom-forms";
+@import "../Content/bootstrap/card";
+
+
+
+// Theme
+@import "theme/core";

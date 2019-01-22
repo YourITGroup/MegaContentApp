@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "css/theme.css",
+    "inputFile": "scss/theme.scss"
+  },
+  {
+    "outputFile": "css/rte-base.css",
+    "inputFile": "scss/rte-base.scss"
+  },
+  {
+    "outputFile": "css/rte.css",
+    "inputFile": "scss/rte.scss"
+  }
+]
