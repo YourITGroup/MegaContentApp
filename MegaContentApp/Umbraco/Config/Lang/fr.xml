@@ -464,7 +464,6 @@
     <key alias="contentTypeAliasAndNameNotNull">Veuillez remplir l'alias et le nom de la nouvelle propriété!</key>
     <key alias="filePermissionsError">Il y a un problème de droits en lecture/écriture sur un fichier ou dossier spécifique</key>
     <key alias="macroErrorLoadingPartialView">Erreur de chargement du script d'une Partial View (fichier : %0%)</key>
-    <key alias="macroErrorLoadingUsercontrol">Erreur de chargement du userControl '%0%'</key>
     <key alias="missingTitle">Veuillez entrer un titre</key>
     <key alias="missingType">Veuillez choisir un type</key>
     <key alias="pictureResizeBiggerThanOrg">Vous allez définir une taille d'image supérieure à sa taille d'origine. Êtes-vous certain(e) de vouloir continuer?</key>
@@ -613,7 +612,7 @@
     <key alias="blue">Bleu</key>
   </area>
   <area alias="shortcuts">
-    <key alias="addTab">Ajouter un onglet</key>
+    <key alias="addGroup">Ajouter un onglet</key>
     <key alias="addProperty">Ajouter une propriété</key>
     <key alias="addEditor">Ajouter un éditeur</key>
     <key alias="addTemplate">Ajouter un modèle</key>
@@ -1157,14 +1156,12 @@ Pour gérer votre site, ouvrez simplement le backoffice Umbraco et commencez à 
   </area>
   <area alias="settings">
     <key alias="defaulttemplate">Modèle par défaut</key>
-    <key alias="dictionary editor egenskab">Clé de dictionnaire</key>
     <key alias="importDocumentTypeHelp">Pour importer un type de document, trouvez le fichier ".udt" sur votre ordinateur en cliquant sur le bouton "Parcourir" et cliquez sur "Importer" (une confirmation vous sera demandée à l'écran suivant)</key>
     <key alias="newtabname">Titre du nouvel onglet</key>
     <key alias="nodetype">Type de noeud</key>
     <key alias="objecttype">Type</key>
     <key alias="stylesheet">Feuille de style</key>
     <key alias="script">Script</key>
-    <key alias="stylesheet editor egenskab">Propriété de feuille de style</key>
     <key alias="tab">Onglet</key>
     <key alias="tabname">Titre de l'onglet</key>
     <key alias="tabs">Onglets</key>
@@ -1377,7 +1374,7 @@ Pour gérer votre site, ouvrez simplement le backoffice Umbraco et commencez à 
   </area>
   <area alias="contentTypeEditor">
     <key alias="compositions">Compositions</key>
-    <key alias="noTabs">Vous n'avez pas ajouté d'onglet</key>
+    <key alias="noGroups">Vous n'avez pas ajouté d'onglet</key>
     <key alias="inheritedFrom">Hérité de</key>
     <key alias="addProperty">Ajouter une propriété</key>
     <key alias="requiredLabel">Label requis</key>
@@ -1853,7 +1850,6 @@ Pour gérer votre site, ouvrez simplement le backoffice Umbraco et commencez à 
     <key alias="redirectedTo">Redirigé Vers</key>
     <key alias="noRedirects">Aucune redirection n'a été créée</key>
     <key alias="noRedirectsDescription">Lorsqu'une page publiée est renommée ou déplacée, une redirection sera automatiquement créée vers la nouvelle page.</key>
-    <key alias="removeButton">Supprimer</key>
     <key alias="confirmRemove">Etes-vous certain(e) de vouloir supprimer la redirection de '%0%' vers '%1%'?</key>
     <key alias="redirectRemoved">Redirection d'URL supprimée.</key>
     <key alias="redirectRemoveError">Erreur lors de la suppression de la redirection d'URL.</key>

@@ -8,8 +8,40 @@
             $httpProvider.defaults.xsrfCookieName = 'UMB-XSRF-TOKEN';
             $httpProvider.interceptors.push('securityInterceptor');
             $httpProvider.interceptors.push('debugRequestInterceptor');
+            $httpProvider.interceptors.push('doNotPostDollarVariablesOnPostRequestInterceptor');
+            $httpProvider.interceptors.push('cultureRequestInterceptor');
         }
     ]);
+    'use strict';
+    (function () {
+        'use strict';
+        /**
+   * Used to set the current client culture on all requests API requests
+   * @param {any} $routeParams
+   */
+        function cultureRequestInterceptor($injector) {
+            return {
+                //dealing with requests:
+                'request': function request(config) {
+                    if (!Umbraco.Sys.ServerVariables.umbracoSettings.umbracoPath) {
+                        // no settings available, we're probably on the login screen
+                        return config;
+                    }
+                    if (!config.url.match(RegExp(Umbraco.Sys.ServerVariables.umbracoSettings.umbracoPath + '/backoffice/', 'i'))) {
+                        // it's not an API request, no handling
+                        return config;
+                    }
+                    var $routeParams = $injector.get('$routeParams');
+                    if ($routeParams) {
+                        // it's an API request, add the current client culture as a header value
+                        config.headers['X-UMB-CULTURE'] = $routeParams.cculture ? $routeParams.cculture : $routeParams.mculture;
+                    }
+                    return config;
+                }
+            };
+        }
+        angular.module('umbraco.interceptors').factory('cultureRequestInterceptor', cultureRequestInterceptor);
+    }());
     'use strict';
     (function () {
         'use strict';
@@ -31,6 +63,51 @@
             };
         }
         angular.module('umbraco.interceptors').factory('debugRequestInterceptor', debugRequestInterceptor);
+    }());
+    'use strict';
+    function _typeof(obj) {
+        if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
+            _typeof = function _typeof(obj) {
+                return typeof obj;
+            };
+        } else {
+            _typeof = function _typeof(obj) {
+                return obj && typeof Symbol === 'function' && obj.constructor === Symbol && obj !== Symbol.prototype ? 'symbol' : typeof obj;
+            };
+        }
+        return _typeof(obj);
+    }
+    (function () {
+        'use strict';
+        function removeProperty(obj, propertyPrefix) {
+            for (var property in obj) {
+                if (obj.hasOwnProperty(property)) {
+                    if (property.startsWith(propertyPrefix) && obj[property] !== undefined) {
+                        obj[property] = undefined;
+                    }
+                    if (_typeof(obj[property]) === 'object') {
+                        removeProperty(obj[property], propertyPrefix);
+                    }
+                }
+            }
+        }
+        function transform(data) {
+            removeProperty(data, '$');
+        }
+        function doNotPostDollarVariablesRequestInterceptor($q, urlHelper) {
+            return {
+                //dealing with requests:
+                'request': function request(config) {
+                    if (config.method === 'POST') {
+                        var clone = angular.copy(config);
+                        transform(clone.data);
+                        return clone;
+                    }
+                    return config;
+                }
+            };
+        }
+        angular.module('umbraco.interceptors').factory('doNotPostDollarVariablesOnPostRequestInterceptor', doNotPostDollarVariablesRequestInterceptor);
     }());
     'use strict';
     (function () {

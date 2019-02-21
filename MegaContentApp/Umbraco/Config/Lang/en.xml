@@ -78,6 +78,10 @@
     <key alias="update">Allow access to save a node</key>
     <key alias="createblueprint">Allow access to create a Content Template</key>
   </area>
+  <area alias="apps">
+    <key alias="umbContent">Content</key>
+    <key alias="umbInfo">Info</key>
+  </area>
   <area alias="assignDomain">
     <key alias="permissionDenied">Permission denied.</key>
     <key alias="addNew">Add new Domain</key>
@@ -123,13 +127,17 @@
     <key alias="listNumeric">Numeric List</key>
     <key alias="macroInsert">Insert macro</key>
     <key alias="pictureInsert">Insert picture</key>
+    <key alias="publishAndClose">Publish and close</key>
+    <key alias="publishDescendants">Publish with descendants</key>
     <key alias="relations">Edit relations</key>
     <key alias="returnToList">Return to list</key>
     <key alias="save">Save</key>
+    <key alias="saveAndClose">Save and close</key>
     <key alias="saveAndPublish">Save and publish</key>
     <key alias="saveAndSchedule">Save and schedule</key>
     <key alias="saveToPublish">Save and send for approval</key>
     <key alias="saveListView">Save list view</key>
+    <key alias="schedulePublish">Schedule</key>
     <key alias="showPage">Preview</key>
     <key alias="showPageDisabled">Preview is disabled because there's no template assigned</key>
     <key alias="styleChoose">Choose style</key>
@@ -168,6 +176,7 @@
     <key alias="smallSendToPublish">Send To Publish</key>
     <key alias="smallSendToPublishVariant">Send To Publish</key>
     <key alias="smallSort">Sort</key>
+    <key alias="historyIncludingVariants">History (all variants)</key>
   </area>
   <area alias="changeDocType">
     <key alias="changeDocTypeInstruction">To change the document type for the selected content, first select from the list of valid types for this location.</key>
@@ -192,6 +201,7 @@
   <area alias="codefile">
     <key alias="createFolderFailedById">Failed to create a folder under parent with ID %0%</key>
     <key alias="createFolderFailedByName">Failed to create a folder under parent with name %0%</key>
+    <key alias="createFolderIllegalChars">The folder name cannot contain illegal characters.</key>
     <key alias="deleteItemFailed">Failed to delete item: %0%</key>
   </area>
   <area alias="content">
@@ -236,6 +246,8 @@
     <key alias="published">Published</key>
     <key alias="publishedPendingChanges">Published (pending changes)</key>
     <key alias="publishStatus">Publication Status</key>
+    <key alias="publishDescendantsHelp"><![CDATA[Click <em>Publish with descendants</em> to publish <strong>%0%</strong> and all content items underneath and thereby making their content publicly available.]]></key>
+    <key alias="publishDescendantsWithVariantsHelp"><![CDATA[Click <em>Publish with descendants</em> to publish <strong>the selected languages</strong> and the same languages of content items underneath and thereby making their content publicly available.]]></key>
     <key alias="releaseDate">Publish at</key>
     <key alias="unpublishDate">Unpublish at</key>
     <key alias="removeDate">Clear Date</key>
@@ -263,8 +275,23 @@
     <key alias="addTextBox">Add another text box</key>
     <key alias="removeTextBox">Remove this text box</key>
     <key alias="contentRoot">Content root</key>
+    <key alias="includeUnpublished">Include drafts: also publish unpublished content items.</key>
     <key alias="isSensitiveValue">This value is hidden. If you need access to view this value please contact your website administrator.</key>
     <key alias="isSensitiveValue_short">This value is hidden.</key>
+    <key alias="languagesToPublishForFirstTime">What languages would you like to publish? All languages with content are saved!</key>
+    <key alias="languagesToPublish">What languages would you like to publish?</key>
+    <key alias="languagesToSave">What languages would you like to save?</key>
+    <key alias="languagesToSaveForFirstTime">All languages with content are saved on creation!</key>
+    <key alias="languagesToSendForApproval">What languages would you like to send for approval?</key>
+    <key alias="languagesToSchedule">What languages would you like to schedule?</key>
+    <key alias="languagesToUnpublish">Select the languages to unpublish. Unpublishing a mandatory language will unpublish all languages.</key>
+    <key alias="publishedLanguages">Published Languages</key>
+    <key alias="unpublishedLanguages">Unpublished Languages</key>
+    <key alias="unmodifiedLanguages">Unmodified Languages</key>
+    <key alias="readyToPublish">Ready to Publish?</key>
+    <key alias="readyToSave">Ready to Save?</key>
+    <key alias="sendForApproval">Send for approval</key>
+    <key alias="schedulePublishHelp">Select the date and time to publish and/or unpublish the content item.</key>
   </area>
   <area alias="blueprints">
     <key alias="createBlueprintFrom">Create a new Content Template from '%0%'</key>
@@ -282,10 +309,10 @@
     <key alias="disallowedFileType">Cannot upload this file, it does not have an approved file type</key>
     <key alias="maxFileSize">Max file size is</key>
     <key alias="mediaRoot">Media root</key>
-        <key alias="moveFailed">Failed to move media</key>
-        <key alias="copyFailed">Failed to copy media</key>
-        <key alias="createFolderFailed">Failed to create a folder under parent id %0%</key>
-        <key alias="renameFolderFailed">Failed to rename the folder with id %0%</key>
+    <key alias="moveFailed">Failed to move media</key>
+    <key alias="copyFailed">Failed to copy media</key>
+    <key alias="createFolderFailed">Failed to create a folder under parent id %0%</key>
+    <key alias="renameFolderFailed">Failed to rename the folder with id %0%</key>
   </area>
   <area alias="member">
     <key alias="createNewMember">Create a new member</key>
@@ -303,13 +330,14 @@
     <key alias="documentTypeWithoutTemplate">Document Type without a template</key>
     <key alias="newFolder">New folder</key>
     <key alias="newDataType">New data type</key>
-        <key alias="newJavascriptFile">New JavaScript file</key>
+    <key alias="newJavascriptFile">New JavaScript file</key>
     <key alias="newEmptyPartialView">New empty partial view</key>
     <key alias="newPartialViewMacro">New partial view macro</key>
     <key alias="newPartialViewFromSnippet">New partial view from snippet</key>
     <key alias="newPartialViewMacroFromSnippet">New partial view macro from snippet</key>
     <key alias="newPartialViewMacroNoMacro">New partial view macro (without macro)</key>
     <key alias="newStyleSheetFile">New style sheet file</key>
+    <key alias="newRteStyleSheetFile">New Rich Text Editor style sheet file</key>
   </area>
   <area alias="dashboard">
     <key alias="browser">Browse your website</key>
@@ -325,7 +353,10 @@
     <key alias="discardChanges">Discard changes</key>
     <key alias="unsavedChanges">You have unsaved changes</key>
     <key alias="unsavedChangesWarning">Are you sure you want to navigate away from this page? - you have unsaved changes</key>
+    <key alias="confirmListViewPublish">Publishing will make the selected items visible on the site.</key>
+    <key alias="confirmListViewUnpublish">Unpublishing will remove the selected items and all their descendants from the site.</key>
     <key alias="confirmUnpublish">Unpublishing will remove this page and all its descendants from the site.</key>
+    <key alias="doctypeChangeWarning">You have unsaved changes. Making changes to the Document Type will discard the changes.</key>
   </area>
   <area alias="bulk">
     <key alias="done">Done</key>
@@ -432,6 +463,9 @@
     <key alias="selectSnippet">Select snippet</key>
     <key alias="variantdeletewarning">This will delete the node and all its languages. If you only want to delete one language go and unpublish it instead.</key>
   </area>
+  <area alias="dictionary">
+    <key alias="noItems">There are no dictionary items.</key>
+  </area>
   <area alias="dictionaryItem">
     <key alias="description"><![CDATA[
       Edit the different language versions for the dictionary item '<em>%0%</em>' below<br/>You can add additional languages under the 'languages' in the menu on the left
@@ -441,6 +475,29 @@
       The key '%0%' already exists.
    ]]></key>
     <key alias="overviewTitle">Dictionary overview</key>
+  </area>
+  <area alias="examineManagement">
+    <key alias="configuredSearchers">Configured Searchers</key>
+    <key alias="configuredSearchersDescription">Shows properties and tools for any configured Searcher (i.e. such as a multi-index searcher)</key>
+    <key alias="fieldValues">Field values</key>
+    <key alias="healthStatus">Health status</key>
+    <key alias="healthStatusDescription">The health status of the index and if it can be read</key>
+    <key alias="indexers">Indexers</key>
+    <key alias="indexInfo">Index info</key>
+    <key alias="indexInfoDescription">Lists the properties of the index</key>
+    <key alias="manageIndexes">Manage Examine's indexes</key>
+    <key alias="manageIndexesDescription">Allows you to view the details of each index and provides some tools for managing the indexes</key>
+    <key alias="rebuildIndex">Rebuild index</key>
+    <key alias="rebuildIndexWarning"><![CDATA[
+      This will cause the index to be rebuilt.<br />
+      Depending on how much content there is in your site this could take a while.<br />
+      It is not recommended to rebuild an index during times of high website traffic or when editors are editing content.
+     ]]>
+    </key>
+    <key alias="searchers">Searchers</key>
+    <key alias="searchDescription">Search the index and view the results</key>
+    <key alias="tools">Tools</key>
+    <key alias="toolsDescription">Tools to manage the index</key>
   </area>
   <area alias="placeholders">
     <key alias="username">Enter your username</key>
@@ -455,7 +512,7 @@
     <key alias="search">Type to search...</key>
     <key alias="filter">Type to filter...</key>
     <key alias="enterTags">Type to add tags (press enter after each tag)...</key>
-    <key alias="email">Enter your email...</key>
+    <key alias="email">Enter your email</key>
     <key alias="enterMessage">Enter a message...</key>
     <key alias="usernameHint">Your username is usually your email</key>
     <key alias="anchor">#value or ?key=value</key>
@@ -519,7 +576,6 @@
     <key alias="contentTypeAliasAndNameNotNull">Please fill both alias and name on the new property type!</key>
     <key alias="filePermissionsError">There is a problem with read/write access to a specific file or folder</key>
     <key alias="macroErrorLoadingPartialView">Error loading Partial View script (file: %0%)</key>
-    <key alias="macroErrorLoadingUsercontrol">Error loading userControl '%0%'</key>
     <key alias="missingTitle">Please enter a title</key>
     <key alias="missingType">Please choose a type</key>
     <key alias="pictureResizeBiggerThanOrg">You're about to make the picture larger than the original size. Are you sure that you want to proceed?</key>
@@ -530,7 +586,6 @@
     <key alias="tableSplitNotSplittable">You cannot split a cell that hasn't been merged.</key>
   </area>
   <area alias="general">
-    <key alias="options">Options</key>
     <key alias="about">About</key>
     <key alias="action">Action</key>
     <key alias="actions">Actions</key>
@@ -539,6 +594,7 @@
     <key alias="all">All</key>
     <key alias="areyousure">Are you sure?</key>
     <key alias="back">Back</key>
+    <key alias="backToOverview">Back to overview</key>
     <key alias="border">Border</key>
     <key alias="by">by</key>
     <key alias="cancel">Cancel</key>
@@ -550,6 +606,7 @@
     <key alias="confirm">Confirm</key>
     <key alias="constrain">Constrain</key>
     <key alias="constrainProportions">Constrain proportions</key>
+    <key alias="content">Content</key>
     <key alias="continue">Continue</key>
     <key alias="copy">Copy</key>
     <key alias="create">Create</key>
@@ -569,6 +626,7 @@
     <key alias="elements">Elements</key>
     <key alias="email">Email</key>
     <key alias="error">Error</key>
+    <key alias="field">Field</key>
     <key alias="findDocument">Find</key>
     <key alias="first">First</key>
     <key alias="general">General</key>
@@ -580,6 +638,7 @@
     <key alias="icon">Icon</key>
     <key alias="id">Id</key>
     <key alias="import">Import</key>
+    <key alias="includeFromsubFolders">Include subfolders in search</key>
     <key alias="info">Info</key>
     <key alias="innerMargin">Inner margin</key>
     <key alias="insert">Insert</key>
@@ -608,6 +667,7 @@
     <key alias="off">Off</key>
     <key alias="ok">OK</key>
     <key alias="open">Open</key>
+    <key alias="options">Options</key>
     <key alias="on">On</key>
     <key alias="or">or</key>
     <key alias="orderBy">Order by</key>
@@ -616,9 +676,11 @@
     <key alias="pleasewait">One moment please...</key>
     <key alias="previous">Previous</key>
     <key alias="properties">Properties</key>
+    <key alias="rebuild">Rebuild</key>
     <key alias="reciept">Email to receive form data</key>
     <key alias="recycleBin">Recycle Bin</key>
     <key alias="recycleBinEmpty">Your recycle bin is empty</key>
+    <key alias="reload">Reload</key>
     <key alias="remaining">Remaining</key>
     <key alias="remove">Remove</key>
     <key alias="rename">Rename</key>
@@ -629,7 +691,7 @@
     <key alias="rights">Permissions</key>
     <key alias="scheduledPublishing">Scheduled Publishing</key>
     <key alias="search">Search</key>
-        <key alias="searchNoResult">Sorry, we can not find what you are looking for.</key>
+    <key alias="searchNoResult">Sorry, we can not find what you are looking for.</key>
     <key alias="noItemsInList">No items have been added</key>
     <key alias="server">Server</key>
     <key alias="settings">Settings</key>
@@ -666,13 +728,12 @@
     <key alias="current">current</key>
     <key alias="embed">Embed</key>
     <key alias="selected">selected</key>
-    <key alias="includeFromsubFolders">Include subfolders in search</key>
   </area>
   <area alias="colors">
     <key alias="blue">Blue</key>
   </area>
   <area alias="shortcuts">
-    <key alias="addTab">Add tab</key>
+    <key alias="addGroup">Add group</key>
     <key alias="addProperty">Add property</key>
     <key alias="addEditor">Add editor</key>
     <key alias="addTemplate">Add template</key>
@@ -1049,22 +1110,26 @@ To manage your website, simply open the Umbraco back office and start adding con
     <key alias="notifications">Notifications</key>
   </area>
   <area alias="packager">
+    <key alias="actions">Actions</key>
     <key alias="created">Created</key>
     <key alias="createPackage">Create package</key>
     <key alias="chooseLocalPackageText"><![CDATA[
       Choose Package from your machine, by clicking the Browse<br />
          button and locating the package. Umbraco packages usually have a ".umb" or ".zip" extension.
       ]]></key>
+    <key alias="deletewarning">This will delete the package</key>
     <key alias="dropHere">Drop to upload</key>
+    <key alias="includeAllChildNodes">Include all child nodes</key>
     <key alias="orClickHereToUpload">or click here to choose package file</key>
     <key alias="uploadPackage">Upload package</key>
     <key alias="localPackageDescription">Install a local package by selecting it from your machine. Only install packages from sources you know and trust</key>
     <key alias="uploadAnother">Upload another package</key>
     <key alias="cancelAndUploadAnother">Cancel and upload another package</key>
-    <key alias="packageLicense">License</key>
     <key alias="accept">I accept</key>
     <key alias="termsOfUse">terms of use</key>
-    <key alias="packageInstall">Install package</key>
+    
+    <key alias="pathToFile">Path to file</key>
+    <key alias="pathToFileDescription">Absolute path to file (ie: /bin/umbraco.bin)</key>
     <key alias="installed">Installed</key>
     <key alias="installedPackages">Installed packages</key>
     <key alias="installLocal">Install local</key>
@@ -1073,6 +1138,15 @@ To manage your website, simply open the Umbraco back office and start adding con
     <key alias="noPackagesCreated">No packages have been created yet</key>
     <key alias="noPackages">You don’t have any packages installed</key>
     <key alias="noPackagesDescription"><![CDATA[You don’t have any packages installed. Either install a local package by selecting it from your machine, or browse through available packages using the <strong>'Packages'</strong> icon in the top right of your screen]]></key>
+    <key alias="packageActions">Package Actions</key>
+    <key alias="packageAuthorUrl">Author URL</key>
+    <key alias="packageContent">Package Content</key>
+    <key alias="packageFiles">Package Files</key>
+    <key alias="packageIconUrl">Icon URL</key>
+    <key alias="packageInstall">Install package</key>
+    <key alias="packageLicense">License</key>
+    <key alias="packageLicenseUrl">License URL</key>
+    <key alias="packageProperties">Package Properties</key>
     <key alias="packageSearch">Search for packages</key>
     <key alias="packageSearchResults">Results for</key>
     <key alias="packageNoResults">We couldn’t find anything for</key>
@@ -1194,11 +1268,11 @@ To manage your website, simply open the Umbraco back office and start adding con
     <key alias="externalLinkPlaceholder">Enter the link</key>
   </area>
   <area alias="imagecropper">
-        <key alias="reset">Reset crop</key>
+    <key alias="reset">Reset crop</key>
     <key alias="saveCrop">Save crop</key>
     <key alias="addCrop">Add new crop</key>
-        <key alias="updateEditCrop">Done</key>
-        <key alias="undoEditCrop">Undo edits</key>
+    <key alias="updateEditCrop">Done</key>
+    <key alias="undoEditCrop">Undo edits</key>
   </area>
   <area alias="rollback">
     <key alias="headline">Select a version to compare with the current version</key>
@@ -1235,14 +1309,12 @@ To manage your website, simply open the Umbraco back office and start adding con
   </area>
   <area alias="settings">
     <key alias="defaulttemplate">Default template</key>
-    <key alias="dictionary editor egenskab">Dictionary Key</key>
     <key alias="importDocumentTypeHelp">To import a document type, find the ".udt" file on your computer by clicking the "Browse" button and click "Import" (you'll be asked for confirmation on the next screen)</key>
     <key alias="newtabname">New Tab Title</key>
     <key alias="nodetype">Node type</key>
     <key alias="objecttype">Type</key>
     <key alias="stylesheet">Stylesheet</key>
     <key alias="script">Script</key>
-    <key alias="stylesheet editor egenskab">Stylesheet property</key>
     <key alias="tab">Tab</key>
     <key alias="tabname">Tab Title</key>
     <key alias="tabs">Tabs</key>
@@ -1290,7 +1362,7 @@ To manage your website, simply open the Umbraco back office and start adding con
     <key alias="editContentSendToPublish">Sent For Approval</key>
     <key alias="editContentSendToPublishText">Changes have been sent for approval</key>
     <key alias="editMediaSaved">Media saved</key>
-        <key alias="editMemberGroupSaved">Member group saved</key>
+    <key alias="editMemberGroupSaved">Member group saved</key>
     <key alias="editMediaSavedText">Media saved without any errors</key>
     <key alias="editMemberSaved">Member saved</key>
     <key alias="editStylesheetPropertySaved">Stylesheet Property Saved</key>
@@ -1307,6 +1379,7 @@ To manage your website, simply open the Umbraco back office and start adding con
     <key alias="languageSaved">Language saved</key>
     <key alias="mediaTypeSavedHeader">Media Type saved</key>
     <key alias="memberTypeSavedHeader">Member Type saved</key>
+    <key alias="memberGroupSavedHeader">Member Group saved</key>
     <key alias="templateErrorHeader">Template not saved</key>
     <key alias="templateErrorText">Please make sure that you do not have 2 templates with the same alias</key>
     <key alias="templateSavedHeader">Template saved</key>
@@ -1335,13 +1408,15 @@ To manage your website, simply open the Umbraco back office and start adding con
     <key alias="documentTypeExportedError">An error occurred while exporting the document type</key>
   </area>
   <area alias="stylesheet">
+    <key alias="addRule">Add style</key>
+    <key alias="editRule">Edit style</key>
     <key alias="editorRules">Rich text editor styles</key>
     <key alias="editorRulesHelp">Define the styles that should be available in the rich text editor for this stylesheet</key>
     <key alias="editstylesheet">Edit stylesheet</key>
     <key alias="editstylesheetproperty">Edit stylesheet property</key>
     <key alias="nameHelp">The name displayed in the editor style selector</key>
-    <key alias="overlayTitleAddRule">Add style</key>
-    <key alias="overlayTitleEditRule">Edit style</key>
+    <key alias="preview">Preview</key>
+    <key alias="previewHelp">How the text will look like in the rich text editor.</key>
     <key alias="selector">Selector</key>
     <key alias="selectorHelp">Uses CSS syntax, e.g. "h1" or ".redHeader"</key>
     <key alias="styles">Styles</key>
@@ -1467,7 +1542,8 @@ To manage your website, simply open the Umbraco back office and start adding con
   </area>
   <area alias="contentTypeEditor">
     <key alias="compositions">Compositions</key>
-    <key alias="noTabs">You have not added any tabs</key>
+    <key alias="noGroups">You have not added any groups</key>
+    <key alias="addGroup">Add group</key>
     <key alias="inheritedFrom">Inherited from</key>
     <key alias="addProperty">Add property</key>
     <key alias="requiredLabel">Required label</key>
@@ -1516,6 +1592,27 @@ To manage your website, simply open the Umbraco back office and start adding con
     <key alias="allowVaryByCulture">Allow varying by culture</key>
     <key alias="elementHeading">Is an Element type</key>
     <key alias="elementDescription">An Element type is meant to be used for instance in Nested Content, and not in the tree</key>
+    <key alias="elementDoesNotSupport">This is not applicable for an Element type</key>
+  </area>
+  <area alias="languages">
+    <key alias="addLanguage">Add language</key>
+    <key alias="mandatoryLanguage">Mandatory language</key>
+    <key alias="mandatoryLanguageHelp">Properties on this language have to be filled out before the node can be published.</key>
+    <key alias="defaultLanguage">Default language</key>
+    <key alias="defaultLanguageHelp">An Umbraco site can only have one default language set.</key>
+    <key alias="changingDefaultLanguageWarning">Switching default language may result in default content missing.</key>
+    <key alias="fallsbackToLabel">Falls back to</key>
+    <key alias="noFallbackLanguageOption">No fall back language</key>
+    <key alias="fallbackLanguageDescription">To allow multi-lingual content to fall back to another language if not present in the requested language, select it here.</key>
+    <key alias="fallbackLanguage">Fall back language</key>
+  </area>
+
+  <area alias="macro">
+    <key alias="addParameter">Add parameter</key>
+    <key alias="editParameter">Edit parameter</key>
+    <key alias="enterMacroName">Enter macro name</key>
+    <key alias="parameters">Parameters</key>
+    <key alias="parametersDescription">Define the parameters that should be available when using this macro.</key>
   </area>
   <area alias="modelsBuilder">
     <key alias="buildingModels">Building models</key>
@@ -1628,10 +1725,11 @@ To manage your website, simply open the Umbraco back office and start adding con
     <key alias="scripts">Scripts</key>
     <key alias="stylesheets">Stylesheets</key>
     <key alias="templates">Templates</key>
+    <key alias="logViewer">Log Viewer</key>
     <key alias="users">Users</key>
-        <key alias="settingsGroup">Settings</key>
-        <key alias="templatingGroup">Templating</key>
-        <key alias="thirdPartyGroup">Third Party</key>
+    <key alias="settingsGroup">Settings</key>
+    <key alias="templatingGroup">Templating</key>
+    <key alias="thirdPartyGroup">Third Party</key>
   </area>
   <area alias="update">
     <key alias="updateAvailable">New update ready</key>
@@ -1824,6 +1922,17 @@ To manage your website, simply open the Umbraco back office and start adding con
     <key alias="defaultInvitationMessage">Resending invitation...</key>
     <key alias="deleteUser">Delete User</key>
     <key alias="deleteUserConfirmation">Are you sure you wish to delete this user account?</key>
+    <key alias="stateAll">All</key>
+    <key alias="stateActive">Active</key>
+    <key alias="stateDisabled">Disabled</key>
+    <key alias="stateLockedOut">Locked out</key>
+    <key alias="stateInvited">Invited</key>
+    <key alias="stateInactive">Inactive</key>
+    <key alias="sortNameAscending">Name (A-Z)</key>
+    <key alias="sortNameDescending">Name (Z-A)</key>
+    <key alias="sortCreateDateAscending">Newest</key>
+    <key alias="sortCreateDateDescending">Oldest</key>
+    <key alias="sortLastLoginDateDescending">Last login</key>
   </area>
   <area alias="validation">
     <key alias="validation">Validation</key>
@@ -1841,6 +1950,7 @@ To manage your website, simply open the Umbraco back office and start adding con
     <key alias="invalidDate">Invalid date</key>
     <key alias="invalidNumber">Not a number</key>
     <key alias="invalidEmail">Invalid email</key>
+    <key alias="customValidation">Custom validation</key>
   </area>
   <area alias="healthcheck">
     <!-- The following keys get these tokens passed in:
@@ -1954,10 +2064,10 @@ To manage your website, simply open the Umbraco back office and start adding con
     <key alias="panelInformation">The following URLs redirect to this content item:</key>
     <key alias="noRedirects">No redirects have been made</key>
     <key alias="noRedirectsDescription">When a published page gets renamed or moved a redirect will automatically be made to the new page.</key>
-    <key alias="removeButton">Remove</key>
     <key alias="confirmRemove">Are you sure you want to remove the redirect from '%0%' to '%1%'?</key>
     <key alias="redirectRemoved">Redirect URL removed.</key>
     <key alias="redirectRemoveError">Error removing redirect URL.</key>
+    <key alias="redirectRemoveWarning">This will remove the redirect</key>
     <key alias="confirmDisable">Are you sure you want to disable the URL tracker?</key>
     <key alias="disabledConfirm">URL tracker has now been disabled.</key>
     <key alias="disableError">Error disabling the URL tracker, more information can be found in your log file.</key>
@@ -1988,7 +2098,20 @@ To manage your website, simply open the Umbraco back office and start adding con
     <key alias="created">Created</key>
     <key alias="comment">Comment</key>
     <key alias="name">Name</key>
+    <key alias="noRelations">No relations for this relation type.</key>
     <key alias="tabRelationType">Relation Type</key>
     <key alias="tabRelations">Relations</key>
   </area>
+  <area alias="dashboardTabs">
+    <key alias="contentIntro">Getting Started</key>
+    <key alias="contentRedirectManager">Redirect URL Management</key>
+    <key alias="mediaFolderBrowser">Content</key>
+    <key alias="settingsWelcome">Welcome</key>
+    <key alias="settingsExamine">Examine Management</key>
+    <key alias="settingsPublishedStatus">Published Status</key>
+    <key alias="settingsModelsBuilder">Models Builder</key>
+    <key alias="settingsHealthCheck">Health Check</key>
+    <key alias="memberIntro">Getting Started</key>
+    <key alias="formsInstall">Install Umbraco Forms</key>
+  </area>>
 </language>
