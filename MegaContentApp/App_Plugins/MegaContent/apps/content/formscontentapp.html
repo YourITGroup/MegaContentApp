@@ -1,0 +1,70 @@
+﻿<div class="umb-box" ng-controller="ContentApps.Mega.FormsContentApp as vm">
+    <div class="umb-box-header">
+        <div class="umb-box-header-title">
+            Forms
+        </div>
+    </div>
+    <div class="umb-box-content">
+        <div class="umb-group-panel"
+             ng-repeat="form in vm.forms">
+
+            <div class="umb-group-panel__header">
+                <div>{{ form.name }} Entries</div>
+            </div>
+
+            <div class="umb-table" ng-if="form.entries.totalNumberOfResults > 0 && !loading">
+
+                <div class="umb-table-head">
+                    <div class="umb-table-row">
+                        <div class="umb-table-cell">
+                        </div>
+                        <div class="umb-table-cell"
+                             ng-repeat="field in form.entries.schema track by $index"
+                             ng-class="{'umb-table__name': $index === 0}">
+                            {{field.name}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="umb-table-body">
+                    <div class="umb-table-row" ng-class="{'umb-table-row--selected': row.selected}" ng-repeat="row in form.entries.results">
+
+                        <div class="umb-table-cell">
+                            <i class="umb-table-body__icon umb-table-body__fileicon icon-categories"></i>
+                        </div>
+
+                        <div class="umb-table-cell"
+                             ng-repeat="field in row.fields track by $index"
+                             ng-class="{'umb-table__name': $index === 0}">
+
+                            <div ng-switch on="form.entries.schema[$index].view">
+
+                                <!-- if the field is of view = 'file' (Show filename, not path & link) -->
+                                <div ng-switch-when="file">
+                                    <a class="umb-table-body__link" href="" ng-click="vm.viewEntryDetails(form.entries.schema, row, $event)" ng-if="$index === 0">{{ field |  fileName }}</a>
+                                    <span ng-if="$index > 0">{{ field |  fileName }}</span>
+                                </div>
+                                <div ng-switch-when="member">
+                                    <div ng-if="field">
+                                        {{ field.Name }}<br />
+                                        <small>{{field.Email}}</small>
+                                    </div>
+                                </div>
+                                <div ng-switch-when="date">
+                                    <!-- TODO: Get the users locale & determine best time format for date filter -->
+                                    <a class="umb-table-body__link" href="" ng-click="vm.viewEntryDetails(form.entries.schema, row, $event)" ng-if="$index === 0">{{ field | date : 'dd MMM yy @ HH:mm:ss' }}</a>
+                                    <span>{{ field | momentDateTimeZone : 'LLL' }}</span>
+                                </div>
+                                <div ng-switch-default>
+                                    <a class="umb-table-body__link" href="" ng-click="vm.viewEntryDetails(form.entries.schema, row, $event)" ng-if="$index === 0"> {{(field || "&#x3C;Empty&#x3E;") | truncate:20:true }}</a>
+                                    <span ng-if="$index > 0">{{(field || "&#x3C;Empty&#x3E;") | truncate:20:true }}</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
