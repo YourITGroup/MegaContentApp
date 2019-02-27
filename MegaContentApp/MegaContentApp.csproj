@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\UmbracoCms.8.0.0\build\UmbracoCms.props" Condition="Exists('..\packages\UmbracoCms.8.0.0\build\UmbracoCms.props')" />
   <Import Project="..\packages\UmbracoCms.8.0.0-alpha.58.2470\build\UmbracoCms.props" Condition="Exists('..\packages\UmbracoCms.8.0.0-alpha.58.2470\build\UmbracoCms.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props')" />
@@ -385,19 +386,19 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Umbraco.Core, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.8.0.0-alpha.58.2470\lib\net472\Umbraco.Core.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.8.0.0\lib\net472\Umbraco.Core.dll</HintPath>
     </Reference>
     <Reference Include="Umbraco.Examine, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Web.8.0.0-alpha.58.2470\lib\net472\Umbraco.Examine.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Web.8.0.0\lib\net472\Umbraco.Examine.dll</HintPath>
     </Reference>
     <Reference Include="Umbraco.ModelsBuilder, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Umbraco.ModelsBuilder.8.0.0\lib\Umbraco.ModelsBuilder.dll</HintPath>
+      <HintPath>..\packages\Umbraco.ModelsBuilder.8.0.1\lib\net472\Umbraco.ModelsBuilder.dll</HintPath>
     </Reference>
     <Reference Include="Umbraco.Web, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Web.8.0.0-alpha.58.2470\lib\net472\Umbraco.Web.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Web.8.0.0\lib\net472\Umbraco.Web.dll</HintPath>
     </Reference>
     <Reference Include="Umbraco.Web.UI, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Web.8.0.0-alpha.58.2470\lib\net472\Umbraco.Web.UI.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Web.8.0.0\lib\net472\Umbraco.Web.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -406,7 +407,6 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.html" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
-    <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
     <Content Include="App_Plugins\StarterKit\backoffice\tours\create-content.json" />
     <Content Include="App_Plugins\StarterKit\backoffice\tours\data-structure.json" />
     <Content Include="App_Plugins\StarterKit\package.manifest" />
@@ -422,6 +422,7 @@
     <Content Include="App_Plugins\uSync8\package.manifest" />
     <Content Include="App_Data\packages\installedPackages.config" />
     <Content Include="App_Data\UmbracoForms\Data\forms\adf160f1-39f5-44c0-b01d-9e2da32bf093.json" />
+    <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
     <None Include="compilerconfig.json" />
     <Content Include="App_Plugins\StarterKit\lang\en-GB.xml" />
     <Content Include="App_Plugins\StarterKit\lang\en-US.xml" />
@@ -615,13 +616,6 @@
     <Content Include="Media\cf1ab8dcad0f4a8e974b87b84777b0d6\00000006000000000000000000000000\18720470241_ff77768544_h.jpg" />
     <Content Include="Media\eee91c05b2e84031a056dcd7f28eff89\00000006000000000000000000000000\18531852339_981b067419_h.jpg" />
     <Content Include="Media\fa763e0d0ceb408c8720365d57e06e32\00000006000000000000000000000000\18531854019_351c579559_h.jpg" />
-    <Content Include="Media\Web.config" />
-    <Content Include="config\umbracoSettings.config" />
-    <Content Include="config\tinyMceConfig.config" />
-    <Content Include="config\serilog.user.config" />
-    <Content Include="config\serilog.config" />
-    <Content Include="config\HealthChecks.config" />
-    <Content Include="config\BackOfficeTours\getting-started.json" />
     <Content Include="Content\bootstrap\_variables.scss" />
     <Content Include="Content\bootstrap\_utilities.scss" />
     <Content Include="Content\bootstrap\_type.scss" />
@@ -712,17 +706,16 @@
     <Content Include="Content\bootstrap\bootstrap-reboot.scss" />
     <Content Include="Content\bootstrap\bootstrap-grid.scss" />
     <Content Include="config\uSync8.config" />
+    <Content Include="Media\Web.config" />
+    <Content Include="config\umbracoSettings.config" />
+    <Content Include="config\tinyMceConfig.config" />
+    <Content Include="config\serilog.user.config" />
+    <Content Include="config\serilog.config" />
+    <Content Include="config\HealthChecks.config" />
+    <Content Include="config\BackOfficeTours\getting-started.json" />
     <None Include="scss\theme\_variables.scss" />
     <Content Include="Scripts\umbraco-starterkit-app.js" />
     <Content Include="Views\ContentPage.cshtml" />
-    <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
-    <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Base.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Embed.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Macro.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Media.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Web.config" />
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
@@ -885,6 +878,14 @@
     <Content Include="Views\Person.cshtml" />
     <Content Include="Views\Product.cshtml" />
     <Content Include="Views\Products.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Media.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Macro.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Embed.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Base.cshtml" />
+    <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
+    <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -945,9 +946,12 @@
     <Error Condition="!Exists('..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets'))" />
     <Error Condition="!Exists('..\packages\UmbracoCms.8.0.0-alpha.58.2470\build\UmbracoCms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.8.0.0-alpha.58.2470\build\UmbracoCms.props'))" />
     <Error Condition="!Exists('..\packages\UmbracoCms.8.0.0-alpha.58.2470\build\UmbracoCms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.8.0.0-alpha.58.2470\build\UmbracoCms.targets'))" />
+    <Error Condition="!Exists('..\packages\UmbracoCms.8.0.0\build\UmbracoCms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.8.0.0\build\UmbracoCms.props'))" />
+    <Error Condition="!Exists('..\packages\UmbracoCms.8.0.0\build\UmbracoCms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.8.0.0\build\UmbracoCms.targets'))" />
   </Target>
   <Import Project="..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets" Condition="Exists('..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets')" />
   <Import Project="..\packages\UmbracoCms.8.0.0-alpha.58.2470\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.8.0.0-alpha.58.2470\build\UmbracoCms.targets')" />
+  <Import Project="..\packages\UmbracoCms.8.0.0\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.8.0.0\build\UmbracoCms.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
