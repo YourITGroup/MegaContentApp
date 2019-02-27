@@ -2,6 +2,8 @@
 
 Sample Content App solution
 
+## Database setup
+There's a sample database in the form of a `.bacpac` file in the Solution root directory - it can be imported into SQL Server using SQL Server Managament Studio.
 ## Credentials
 
 The default (Umbraco backoffice) login for the Umbraco site is:

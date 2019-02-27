@@ -1,0 +1,44 @@
+﻿<div class="umb-box" ng-controller="ContentApps.Mega.ProductsContentApp as vm">
+    <div class="umb-box-header">
+        <div class="umb-box-header-title">
+            Mega Content!
+        </div>
+    </div>
+    <div class="umb-box-content">
+        <ul>
+            <li>Current node id: <b>{{vm.CurrentNodeId}}</b></li>
+            <li>Current node alias: <b>{{vm.CurrentNodeAlias}}</b></li>
+        </ul>
+    </div>
+    <div class="umb-box-content">
+        <h3>Navigation Anchors</h3>
+        <div class="umb-group-panel"
+             retrive-dom-element="registerPropertyGroup(element[0], attributes.appAnchor)" 
+             data-app-anchor="{{group.id}}"
+             data-element="group-{{group.alias}}"
+             ng-repeat="group in model.anchors track by group.label">
+
+            <div class="umb-group-panel__header">
+                <div>{{ group.label }}</div>
+            </div>
+
+            <div ng-hide="group.alias === 'Products'" style="height: 400px;"></div>
+            <div ng-hide="group.alias !== 'Products'">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Path</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="product in vm.Products">
+                            <td><a href="" ng-click="openDocument(product)"><i class="{{product.icon}}"></i> {{product.name}}</a></td>
+                            <td>{{product.path}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -148,7 +148,7 @@
   "messageOnSubmit": "Thank you",
   "goToPageOnSubmit": 0,
   "xPathOnSubmit": null,
-  "manualApproval": false,
+  "manualApproval": true,
   "storeRecordsLocally": true,
   "cssClass": null,
   "disableDefaultStylesheet": false,

@@ -18,8 +18,7 @@
     };
 
     function init() {
-        var user = userService.getCurrentUser().then(function (user) {
-            console.log(user);
+        userService.getCurrentUser().then(function (user) {
             vm.UserName = user.name;
         });
     }
