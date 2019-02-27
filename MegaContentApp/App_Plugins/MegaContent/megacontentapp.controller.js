@@ -18,7 +18,7 @@
     };
 
     function init() {
-        var user = userService.getCurrentUser().then(function (user) {
+        userService.getCurrentUser().then(function (user) {
             console.log(user);
             vm.UserName = user.name;
         });
